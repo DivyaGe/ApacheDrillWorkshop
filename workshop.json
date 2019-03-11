@@ -1,0 +1,99 @@
+{
+  "name" : "workshop",
+  "config" : {
+    "type" : "file",
+    "connection" : "file:///",
+    "config" : null,
+    "workspaces" : {
+      "root" : {
+        "location" : "/",
+        "writable" : false,
+        "defaultInputFormat" : null,
+        "allowAccessOutsideWorkspace" : false
+      },
+      "tmp" : {
+        "location" : "/tmp",
+        "writable" : true,
+        "defaultInputFormat" : null,
+        "allowAccessOutsideWorkspace" : false
+      },
+      "data" : {
+        "location" : "c:/installedsoftwares/ApacheDrill/apache-drill-1.14.0/data",
+        "writable" : true,
+        "defaultInputFormat" : null,
+        "allowAccessOutsideWorkspace" : true
+      }
+    },
+    "formats" : {
+      "psv" : {
+        "type" : "text",
+        "extensions" : [ "tbl" ],
+        "delimiter" : "|"
+      },
+      "csv" : {
+        "type" : "text",
+        "extensions" : [ "csv" ],
+        "delimiter" : ","
+      },
+      "tsv" : {
+        "type" : "text",
+        "extensions" : [ "tsv" ],
+        "delimiter" : "\t"
+      },
+      "httpd" : {
+        "type" : "httpd",
+        "logFormat" : "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\""
+      },
+      "parquet" : {
+        "type" : "parquet"
+      },
+      "json" : {
+        "type" : "json",
+        "extensions" : [ "json" ]
+      },
+      "pcap" : {
+        "type" : "pcap"
+      },
+      "avro" : {
+        "type" : "avro"
+      },
+      "sequencefile" : {
+        "type" : "sequencefile",
+        "extensions" : [ "seq" ]
+      },
+      "csvh" : {
+        "type" : "text",
+        "extensions" : [ "csvh" ],
+        "extractHeader" : true,
+        "delimiter" : ","
+      },
+      "log" : {
+        "type" : "logRegex",
+        "regex" : "(\\d{6})\\s(\\d{2}:\\d{2}:\\d{2})\\s+(\\d+)\\s(\\w+)\\s+(.+)",
+        "extension" : "log",
+        "maxErrors" : 10,
+        "schema" : [ {
+          "fieldName" : "eventDate",
+          "fieldType" : "DATE",
+          "format" : "yyMMdd"
+        }, {
+          "fieldName" : "eventTime",
+          "fieldType" : "TIME",
+          "format" : "HH:mm:ss"
+        }, {
+          "fieldName" : "PID",
+          "fieldType" : "INT"
+        }, {
+          "fieldName" : "action"
+        }, {
+          "fieldName" : "query"
+        } ]
+      },
+      "image" : {
+        "type" : "image",
+        "extensions" : [ "jpg", "jpeg", "jpe", "tif", "tiff", "dng", "psd", "png", "bmp", "gif", "ico", "pcx", "wav", "wave", "avi", "webp", "mov", "mp4", "m4a", "m4p", "m4b", "m4r", "m4v", "3gp", "3g2", "eps", "epsf", "epsi", "ai", "arw", "crw", "cr2", "nef", "orf", "raf", "rw2", "rwl", "srw", "x3f" ]
+      }
+    },
+    "enabled" : true
+  }
+}
